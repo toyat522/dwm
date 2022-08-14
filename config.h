@@ -65,21 +65,10 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
-static const char *upvol[] = { "amixer", "set", "Master", "4%+", NULL };
-static const char *downvol[] = { "amixer", "set", "Master", "4%-", NULL };
-static const char *mutevol[] = { "amixer", "set", "Master", "toggle", NULL };
-static const char *upbr[] = { "backlight_control", "+5" , NULL };
-static const char *downbr[] = { "backlight_control", "-5" , NULL };
 
 #include "XF86keysym.h"
 #include "shiftview.c"
 static Key keys[] = {
-	/* modifier                     key        					function        argument */
-	{ 0,                       XF86XK_AudioRaiseVolume,    		spawn,          {.v = upvol } },
-	{ 0,                       XF86XK_AudioLowerVolume,    		spawn,          {.v = downvol } },
-	{ 0,                       XF86XK_AudioMute,    			spawn,          {.v = mutevol } },
-	{ 0,                       XF86XK_MonBrightnessUp,     		spawn,          {.v = upbr } },
-	{ 0,                       XF86XK_MonBrightnessDown,   		spawn,          {.v = downbr } },
 	{ MODKEY|ShiftMask,             XK_j,      					rotatestack,    {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_k,      					rotatestack,    {.i = -1 } },
 	{ MODKEY|ShiftMask, 			XK_m,						focusmaster,	{0} },
