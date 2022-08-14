@@ -1,3 +1,7 @@
+#include <time.h>
+#include <string.h>
+#include <stdio.h>
+
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
@@ -66,8 +70,6 @@ static const char *downvol[] = { "amixer", "set", "Master", "4%-", NULL };
 static const char *mutevol[] = { "amixer", "set", "Master", "toggle", NULL };
 static const char *upbr[] = { "backlight_control", "+5" , NULL };
 static const char *downbr[] = { "backlight_control", "-5" , NULL };
-static const char *screenshot[] = { "scrot", "/home/toyat/Downloads/%Y-%m-%d-%H_%M-%S.jpg", NULL };
-static const char *screensnap[] = { "scrot", "-s", "/home/toyat/Downloads/%Y-%m-%d-%H_%M-%S.jpg", NULL };
 
 #include "XF86keysym.h"
 #include "shiftview.c"
@@ -81,8 +83,6 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_j,      					rotatestack,    {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_k,      					rotatestack,    {.i = -1 } },
 	{ MODKEY|ShiftMask, 			XK_m,						focusmaster,	{0} },
-	{ MODKEY|ShiftMask,             XK_f, 						spawn,          {.v = screenshot } },
-	{ MODKEY|ShiftMask,             XK_s, 						spawn,          {.v = screensnap } },
 	{ MODKEY,                       XK_p,      					spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, 					spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      					togglebar,      {0} },
